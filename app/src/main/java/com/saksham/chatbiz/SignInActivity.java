@@ -76,6 +76,7 @@ public class SignInActivity extends AppCompatActivity {
                     Toast.makeText(SignInActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
+
         });
 
         binding.signUp.setOnClickListener(view -> {
@@ -83,13 +84,15 @@ public class SignInActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        binding.btnGoogle.setOnClickListener(view -> signIn());
-
         if (mAuth.getCurrentUser() != null) {
+
             Intent intent = new Intent(SignInActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         }
+
+        binding.btnGoogle.setOnClickListener(view -> signIn() );
+
     }
 
     int RC_SIGN_IN = 65;
@@ -117,11 +120,13 @@ public class SignInActivity extends AppCompatActivity {
         }
     }
     private void firebaseAuthWithGoogle(String idToken) {
+        progressDialog.show();
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        progressDialog.dismiss();
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("TAG", "signInWithCredential:success");
@@ -134,6 +139,10 @@ public class SignInActivity extends AppCompatActivity {
                             users.setProfilePic(user.getPhotoUrl().toString());
 
                             database.getReference().child("Users").child(user.getUid()).setValue(users);
+
+                            Intent intent = new Intent(SignInActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            finish();
 
                         } else {
                             Toast.makeText(SignInActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
