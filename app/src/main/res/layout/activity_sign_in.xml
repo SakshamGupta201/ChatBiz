@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="32dp"
+        tools:context=".SignInActivity"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="146dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="-30dp"
+            android:scaleType="fitStart"
+            android:src="@drawable/logo_trans"
+            android:transitionName="logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:fontFamily="@font/bungee"
+            android:text="Hello Welcome Back"
+            android:textColor="@color/black"
+            android:textSize="40sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign in to Continue"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            android:transitionName="desc" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:hint="Email"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            android:id="@id/email"
+            android:transitionName="username_trans">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:hint="Password"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:passwordToggleEnabled="true"
+            android:id="@+id/password"
+            android:transitionName="password_trans">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/white"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginBottom="5dp"
+            android:background="@color/transparent"
+            android:backgroundTint="@color/transparent"
+            android:text="Forget Password?"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/signIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:backgroundTint="@color/black"
+            android:text="SIGN IN"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:transitionName="btn_trans"
+            app:cornerRadius="5dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+
+            <ImageButton
+                android:id="@+id/btnFb"
+                android:layout_width="100dp"
+                android:layout_height="70dp"
+                android:background="@color/transparent"
+                android:contentDescription="fb_button"
+                android:scaleType="fitCenter"
+                android:src="@drawable/fb_logo" />
+
+            <ImageButton
+                android:id="@+id/btnGoogle"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="10dp"
+                android:backgroundTint="@color/transparent"
+                android:contentDescription="google_btn"
+                android:scaleType="centerCrop"
+                android:src="@drawable/download" />
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/signUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@color/transparent"
+            android:backgroundTint="@color/transparent"
+            android:text="New USER? SIGNUP"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:transitionName="btn1_trans"
+            app:cornerRadius="10dp" />
+
+    </LinearLayout>
+</layout>
